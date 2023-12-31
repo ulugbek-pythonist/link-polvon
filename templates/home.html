@@ -9,6 +9,15 @@
     }
 </style>
 <div class="content">
+    {% with messages=get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category,message in messages %}
+                <div class="alert alert-{{category}}">
+                  {{message}}
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
     <input type="text" placeholder="put your link here"><br>
     <button class="btn btn-md btn-outline-primary">Hit me</button>
 </div>
